@@ -3,12 +3,38 @@
   "site_name": "AI 日报",
   "timezone": "Asia/Shanghai",
   "update_time": "08:00",
-  "editions": [],
+  "editions": [
+    {
+      "date": "2026-11-02",
+      "title": "AI 日报｜2026-11-02（暂无重要新增）",
+      "count": 0
+    }
+  ],
   "sources": [
-    {"name": "AIBase 日报", "url": "https://news.aibase.cn/daily/", "role": "中文 AI 新闻汇总"},
-    {"name": "Latent Space / AI News", "url": "https://latent.space/news/", "role": "海外模型、工具与开发者动态"},
-    {"name": "Artificial Analysis", "url": "https://artificialanalysis.ai/articles", "role": "独立评测与模型能力变化"},
-    {"name": "Arena 更新日志", "url": "https://arena.ai/company/leaderboard-changelog", "role": "新模型入榜与评测方法变化"},
-    {"name": "Vals Index", "url": "https://www.vals.ai/benchmarks/vals_index", "role": "专业 Agent 评测与综合榜"}
+    {
+      "name": "AIBase 日报",
+      "url": "https://news.aibase.cn/daily/",
+      "role": "中文 AI 新闻汇总"
+    },
+    {
+      "name": "Latent Space / AI News",
+      "url": "https://latent.space/news/",
+      "role": "海外模型、工具与开发者动态"
+    },
+    {
+      "name": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/articles",
+      "role": "独立评测与模型能力变化"
+    },
+    {
+      "name": "Arena 更新日志",
+      "url": "https://arena.ai/company/leaderboard-changelog",
+      "role": "新模型入榜与评测方法变化"
+    },
+    {
+      "name": "Vals Index",
+      "url": "https://www.vals.ai/benchmarks/vals_index",
+      "role": "专业 Agent 评测与综合榜"
+    }
   ]
 }
