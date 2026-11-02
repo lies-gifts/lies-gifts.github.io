@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "generated_at": "2026-11-02T07:57:14+08:00",
+  "window_start": "2026-11-01T07:57:14+08:00",
+  "window_end": "2026-11-02T07:57:14+08:00",
+  "title": "AI 日报｜2026-11-02（暂无重要新增）",
+  "summary": "按北京时间检查过去24小时，五个固定汇总来源均未发现满足本期标准的重要新增资讯、独立评测更新或榜单变化；本期不使用旧闻凑数。",
+  "items": [],
+  "source_status": [
+    {
+      "name": "AIBase 日报",
+      "url": "https://news.aibase.cn/daily/",
+      "status": "unchanged",
+      "checked_at": "2026-11-02T07:57:14+08:00",
+      "latest_date": "2026-10-30",
+      "note": "最新正文发布时间为10月30日16:28（北京时间）；列表中的相对日期与正文绝对日期不一致，按正文日期判定，本窗口无新稿。"
+    },
+    {
+      "name": "Latent Space / AI News",
+      "url": "https://latent.space/news/",
+      "status": "unchanged",
+      "checked_at": "2026-11-02T07:57:14+08:00",
+      "latest_date": "2026-10-31",
+      "note": "最新一期标注10月31日，汇总对象为10月29—30日的新闻；未见本窗口新增日报。"
+    },
+    {
+      "name": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/articles",
+      "status": "unchanged",
+      "checked_at": "2026-11-02T07:57:14+08:00",
+      "latest_date": "2026-10-28",
+      "note": "最新文章为10月28日的Gemini 4 Carbon与Copilot Fusion评测，未见新文章。"
+    },
+    {
+      "name": "Arena 更新日志",
+      "url": "https://arena.ai/company/leaderboard-changelog",
+      "status": "unchanged",
+      "checked_at": "2026-11-02T07:57:14+08:00",
+      "latest_date": "2026-10-28",
+      "note": "最新记录为10月28日Gemini 4 Carbon加入Agent、Text、WebDev榜；未见新入榜或方法更新。"
+    },
+    {
+      "name": "Vals Index",
+      "url": "https://www.vals.ai/benchmarks/vals_index",
+      "status": "unchanged",
+      "checked_at": "2026-11-02T07:57:14+08:00",
+      "latest_date": "2026-10-30",
+      "note": "页面仍标注10月30日、版本2.2；未见本窗口的新版本或排名更新。"
+    }
+  ],
+  "notes": [
+    "本期为网站首次数据归档，目录原本没有历史期次；未把10月28日至31日已出现的旧稿误写为11月2日新闻。",
+    "报道窗口为北京时间2026-11-01 07:57:14至2026-11-02 07:57:14，均以绝对发布时间为准；无法确定的具体事件时刻未推断。",
+    "五个固定页面均可读取，无源站抓取失败；以汇总页为主的覆盖方式无法保证捕获其尚未收录的个别新消息。"
+  ]
+}

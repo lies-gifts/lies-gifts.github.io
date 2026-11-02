@@ -1,57 +1,703 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "date": "2026-11-02",
-  "generated_at": "2026-11-02T07:57:14+08:00",
-  "window_start": "2026-11-01T07:57:14+08:00",
-  "window_end": "2026-11-02T07:57:14+08:00",
-  "title": "AI 日报｜2026-11-02（暂无重要新增）",
-  "summary": "按北京时间检查过去24小时，五个固定汇总来源均未发现满足本期标准的重要新增资讯、独立评测更新或榜单变化；本期不使用旧闻凑数。",
-  "items": [],
+  "generated_at": "2026-11-02T08:23:39+08:00",
+  "window_start": "2026-11-01T08:15:46+08:00",
+  "window_end": "2026-11-02T08:15:46+08:00",
+  "title": "AI 日报｜本地推理、多模态工具与研究线索",
+  "summary": "扩展来源后的本期增补：3 个开源项目、1 项研究线索。包含过去24小时的 llama.cpp 预发布，以及明确标注日期的近7日项目与论文回看。",
+  "editorial_reviewed": true,
+  "items": [
+    {
+      "id": "diffusers-v0421-security",
+      "event_key": "release:huggingface/diffusers:v0.42.1",
+      "category": "开源项目",
+      "title": "近7日项目回看｜Diffusers v0.42.1 修正模型加载安全问题",
+      "summary": "Diffusers 是搭建扩散模型推理与训练流程的 Python 工具库。v0.42.1 修正模型加载时组件库名的解析方式；官方将其列为安全发布，并建议使用 0.42.0 的用户升级。此次重点在加载边界，而非生成效果。",
+      "impact": "维护图像生成服务或自定义流水线的团队，可优先核对是否使用 0.42.0，再依据官方公告安排升级与现有流程验证。",
+      "published_at": "2026-10-27T15:41:43+08:00",
+      "source_name": "Hugging Face Diffusers 官方 GitHub Releases",
+      "source_url": "https://github.com/huggingface/diffusers/releases/tag/v0.42.1",
+      "verification": "官方发布",
+      "evidence_note": "已核对官方发布原文：明确标注 security release，涉及 from_pretrained 组件解析，并链接 GHSA-4prv-5hj7-c2xr；prerelease=false。用途及 Apache-2.0 许可由 README、LICENSE 核对；未独立复现漏洞或验证修复。",
+      "editorial_reviewed": true,
+      "tags": [
+        "多模态",
+        "扩散模型",
+        "开发工具",
+        "安全更新",
+        "近7日项目回看"
+      ],
+      "repository_url": "https://github.com/huggingface/diffusers",
+      "project": {
+        "purpose": "以可组合的模型、调度器和流水线构建扩散模型应用，支持推理和训练。",
+        "audience": "图像及其他生成模型应用开发者、研究人员，以及维护扩散模型服务的团队。",
+        "license": "Apache-2.0；所用模型和数据仍需分别核对许可。",
+        "quick_start_url": "https://huggingface.co/docs/diffusers/quicktour",
+        "limitations": "本条依据官方安全发布说明，未独立验证漏洞影响范围；升级后仍需检查自定义组件与现有流水线。"
+      },
+      "selection_reason": "近7日内有明确升级行动的安全维护发布，对实际使用者的价值高于一般补丁与热度变化。",
+      "is_update": false,
+      "date_note": "近7日项目回看：原始发布于北京时间 2026-10-27 15:41，非今日新闻；GitHub 未标记为预发布。",
+      "related_sources": [
+        {
+          "name": "官方安全公告 GHSA-4prv-5hj7-c2xr",
+          "url": "https://github.com/huggingface/diffusers/security/advisories/GHSA-4prv-5hj7-c2xr"
+        },
+        {
+          "name": "项目 README",
+          "url": "https://github.com/huggingface/diffusers/blob/main/README.md"
+        },
+        {
+          "name": "Apache-2.0 许可证",
+          "url": "https://github.com/huggingface/diffusers/blob/main/LICENSE"
+        }
+      ],
+      "discovered_at": "2026-11-02T08:15:46+08:00",
+      "editorial_score": {
+        "impact": 4,
+        "usefulness": 3,
+        "freshness": 1,
+        "evidence": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "llama-cpp-b12031-opencl-iq3",
+      "event_key": "release:ggml-org/llama.cpp:b12031",
+      "category": "开源项目",
+      "title": "llama.cpp b12031 预发布：OpenCL 初步支持 IQ3 量化",
+      "summary": "llama.cpp 是面向本地模型部署的 C/C++ 推理工具。此次预发布为 OpenCL 后端初步加入 IQ3_S、IQ3_XXS 量化支持，并调整 Adreno 的相关计算路径，值得关注骁龙设备本地推理的开发者跟进。",
+      "impact": "这条更新关系到低比特模型在特定移动 GPU 后端的可用性；实际兼容性和速度仍需在目标设备、驱动与模型组合上验证。",
+      "published_at": "2026-11-01T15:41:33+08:00",
+      "source_name": "llama.cpp 官方 GitHub Releases",
+      "source_url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12031",
+      "verification": "官方发布",
+      "evidence_note": "已核对官方发布原文与 API 元数据：prerelease=true，变更对应 #31338；项目用途及 MIT 许可由官方 README、LICENSE 核对。本文未进行设备性能或兼容性实测。",
+      "editorial_reviewed": true,
+      "tags": [
+        "本地部署",
+        "推理",
+        "量化",
+        "OpenCL",
+        "预发布"
+      ],
+      "repository_url": "https://github.com/ggml-org/llama.cpp",
+      "project": {
+        "purpose": "以 C/C++ 在本地或服务器运行大语言模型与视觉语言模型，提供命令行和模型服务入口。",
+        "audience": "本地模型使用者、推理服务开发者，以及研究低比特模型和移动 GPU 部署的工程师。",
+        "license": "MIT；下载的模型权重及其使用条件需另行核对。",
+        "quick_start_url": "https://github.com/ggml-org/llama.cpp#quick-start",
+        "limitations": "b12031 为预发布，IQ3 支持仍属初步；此项变化针对 OpenCL 后端，不代表其他后端同步变化。"
+      },
+      "selection_reason": "过去24小时内的具体后端能力更新，涉及本地量化推理，区别于仅有版本号或测试改动的自动构建。",
+      "is_update": false,
+      "date_note": "发布于北京时间 2026-11-01 15:41，属本期24小时观察窗口；GitHub 标记为预发布。",
+      "related_sources": [
+        {
+          "name": "官方变更 PR #31338",
+          "url": "https://github.com/ggml-org/llama.cpp/pull/31338"
+        },
+        {
+          "name": "项目 README",
+          "url": "https://github.com/ggml-org/llama.cpp/blob/master/README.md"
+        },
+        {
+          "name": "MIT 许可证",
+          "url": "https://github.com/ggml-org/llama.cpp/blob/master/LICENSE"
+        }
+      ],
+      "discovered_at": "2026-11-02T08:15:46+08:00",
+      "editorial_score": {
+        "impact": 3,
+        "usefulness": 3,
+        "freshness": 2,
+        "evidence": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "comfyui-v0430-workflows",
+      "event_key": "release:comfy-org/comfyui:v0.43.0",
+      "category": "开源项目",
+      "title": "近7日项目回看｜ComfyUI v0.43.0 扩充编辑与工作流节点",
+      "summary": "ComfyUI 用可视化节点连接模型与处理步骤，面向图像、视频等生成工作流。v0.43.0 增强 MOSS-Image 编辑支持，加入镜像补边和分支节点，并更新部分合作服务节点，适合已有复杂创作流程的用户核对升级价值。",
+      "impact": "新增基础节点与编辑控制可为工作流提供更多组合方式；使用合作服务节点时，应另外确认账户、接口费用与服务条款。",
+      "published_at": "2026-10-27T10:40:46+08:00",
+      "source_name": "ComfyUI 官方 GitHub Releases",
+      "source_url": "https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.43.0",
+      "verification": "官方发布",
+      "evidence_note": "已核对官方完整变更记录，包括 MOSS-Image 编辑、Pad Image 与 Branch 节点；prerelease=false。用途及 GPL 第3版许可由官方 README、LICENSE 核对。未安装测试，也未独立验证生成质量、速度或显存变化。",
+      "editorial_reviewed": true,
+      "tags": [
+        "多模态",
+        "图像编辑",
+        "工作流",
+        "本地部署",
+        "近7日项目回看"
+      ],
+      "repository_url": "https://github.com/Comfy-Org/ComfyUI",
+      "project": {
+        "purpose": "通过可视化节点图搭建、保存和复用图像、视频、音频等模型工作流，也提供应用集成接口。",
+        "audience": "视觉创作者、工作流制作者，以及将生成模型接入生产流程的开发者。",
+        "license": "GPL-3.0（核心代码）；模型权重、自定义节点及合作服务另有许可或条款。",
+        "quick_start_url": "https://github.com/Comfy-Org/ComfyUI#get-started",
+        "limitations": "具体模型的硬件需求与自定义节点兼容性需另行检查；合作服务节点依赖外部服务，不等同于全部本地运行。"
+      },
+      "selection_reason": "近7日内兼具具体编辑能力和可复用工作流节点的版本更新，可代表多模态应用层进展。",
+      "is_update": false,
+      "date_note": "近7日项目回看：原始发布于北京时间 2026-10-27 10:40，非今日新闻；GitHub 未标记为预发布。",
+      "related_sources": [
+        {
+          "name": "v0.42.0 至 v0.43.0 完整变更",
+          "url": "https://github.com/Comfy-Org/ComfyUI/compare/v0.42.0...v0.43.0"
+        },
+        {
+          "name": "项目 README",
+          "url": "https://github.com/Comfy-Org/ComfyUI/blob/master/README.md"
+        },
+        {
+          "name": "GPL 第3版许可证",
+          "url": "https://github.com/Comfy-Org/ComfyUI/blob/master/LICENSE"
+        }
+      ],
+      "discovered_at": "2026-11-02T08:15:46+08:00",
+      "editorial_score": {
+        "impact": 3,
+        "usefulness": 3,
+        "freshness": 1,
+        "evidence": 3,
+        "total": 10
+      }
+    },
+    {
+      "id": "soft-mtp-2610-38331",
+      "event_key": "https://arxiv.org/abs/2610.38331",
+      "category": "研究",
+      "title": "近7日研究回看｜Soft-MTP 重新处理多 token 预测的训练梯度",
+      "summary": "预印本提出 Soft-MTP：从多 token 预测的训练信号中保留自蒸馏部分，减少噪声残差。作者报告在 1.67 亿至 12 亿参数的实验中改善部分训练与推测解码指标，并提供代码链接。",
+      "impact": "值得训练与推理优化研究者跟进梯度处理方式；当前证据范围是作者报告的小模型实验，不能据此推断大规模生产模型会获得同等收益。",
+      "published_at": "2026-10-28T06:31:05+00:00",
+      "discovered_at": "2026-11-02T08:15:46+08:00",
+      "source_name": "arXiv 原始预印本",
+      "source_url": "https://arxiv.org/abs/2610.38331",
+      "verification": "研究预印本",
+      "evidence_note": "已读取 arXiv 摘要与提交记录，并对照 Hugging Face 论文页。本文为摘要级研究线索，未全文精读、运行代码或独立复现；作者结果不是独立评测。",
+      "date_note": "近7日研究回看：arXiv 首次提交为北京时间 2026-10-28 14:31；HF 收录日期不能当成论文发布日期。",
+      "tags": [
+        "训练",
+        "推理优化",
+        "多token预测",
+        "研究预印本",
+        "近7日研究回看"
+      ],
+      "editorial_reviewed": true,
+      "selection_reason": "提供可验证的训练方法线索及公开代码入口；优先介绍方法与实验边界，不使用社区点赞排名代替证据。",
+      "editorial_score": {
+        "impact": 2,
+        "usefulness": 2,
+        "freshness": 1,
+        "evidence": 2,
+        "total": 7
+      },
+      "is_update": false,
+      "related_sources": [
+        {
+          "name": "论文列出的代码仓库",
+          "url": "https://github.com/JaydenTeoh/Soft-MTP"
+        },
+        {
+          "name": "Hugging Face 发现页",
+          "url": "https://huggingface.co/papers/2610.38331"
+        }
+      ]
+    }
+  ],
   "source_status": [
     {
+      "id": "aibase-daily",
       "name": "AIBase 日报",
       "url": "https://news.aibase.cn/daily/",
-      "status": "unchanged",
-      "checked_at": "2026-11-02T07:57:14+08:00",
-      "latest_date": "2026-10-30",
-      "note": "最新正文发布时间为10月30日16:28（北京时间）；列表中的相对日期与正文绝对日期不一致，按正文日期判定，本窗口无新稿。"
+      "status": "failed",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "抓取或解析失败；不能判定该源是否有新增。"
     },
     {
-      "name": "Latent Space / AI News",
-      "url": "https://latent.space/news/",
-      "status": "unchanged",
-      "checked_at": "2026-11-02T07:57:14+08:00",
-      "latest_date": "2026-10-31",
-      "note": "最新一期标注10月31日，汇总对象为10月29—30日的新闻；未见本窗口新增日报。"
+      "id": "anthropic-news",
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 134,
+      "http_status": 200
     },
     {
-      "name": "Artificial Analysis",
-      "url": "https://artificialanalysis.ai/articles",
-      "status": "unchanged",
-      "checked_at": "2026-11-02T07:57:14+08:00",
-      "latest_date": "2026-10-28",
-      "note": "最新文章为10月28日的Gemini 4 Carbon与Copilot Fusion评测，未见新文章。"
-    },
-    {
+      "id": "arena-changelog",
       "name": "Arena 更新日志",
       "url": "https://arena.ai/company/leaderboard-changelog",
-      "status": "unchanged",
-      "checked_at": "2026-11-02T07:57:14+08:00",
-      "latest_date": "2026-10-28",
-      "note": "最新记录为10月28日Gemini 4 Carbon加入Agent、Text、WebDev榜；未见新入榜或方法更新。"
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "HTTP 可达，但本次解析为0条；不能据此认定没有新闻。",
+      "parsed_count": 0,
+      "http_status": 200
     },
     {
+      "id": "artificial-analysis",
+      "name": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/articles",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 12,
+      "http_status": 200
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv cs.AI",
+      "url": "https://arxiv.org/list/cs.AI/recent",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "HTTP 可达，但本次解析为0条；不能据此认定没有新闻。",
+      "parsed_count": 0,
+      "http_status": 200
+    },
+    {
+      "id": "arxiv-cl",
+      "name": "arXiv cs.CL",
+      "url": "https://arxiv.org/list/cs.CL/recent",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "HTTP 可达，但本次解析为0条；不能据此认定没有新闻。",
+      "parsed_count": 0,
+      "http_status": 200
+    },
+    {
+      "id": "arxiv-cv",
+      "name": "arXiv cs.CV",
+      "url": "https://arxiv.org/list/cs.CV/recent",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "HTTP 可达，但本次解析为0条；不能据此认定没有新闻。",
+      "parsed_count": 0,
+      "http_status": 200
+    },
+    {
+      "id": "autogen",
+      "name": "AutoGen",
+      "url": "https://github.com/microsoft/autogen/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2025-09-30",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-31",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "codex",
+      "name": "OpenAI Codex",
+      "url": "https://github.com/openai/codex/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-11-01",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "comfyui",
+      "name": "ComfyUI",
+      "url": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-27",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "deepmind-blog",
+      "name": "Google DeepMind Blog",
+      "url": "https://deepmind.google/blog/",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-28",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 100,
+      "http_status": 200
+    },
+    {
+      "id": "deepseek-models",
+      "name": "DeepSeek Official Models",
+      "url": "https://huggingface.co/deepseek-ai",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 10,
+      "http_status": 200
+    },
+    {
+      "id": "deepseek-news",
+      "name": "DeepSeek Research & News",
+      "url": "https://www.deepseek.com/en/news/",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 11,
+      "http_status": 200
+    },
+    {
+      "id": "diffusers",
+      "name": "Diffusers",
+      "url": "https://github.com/huggingface/diffusers/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-27",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "dify",
+      "name": "Dify",
+      "url": "https://github.com/langgenius/dify/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-23",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "github-trending",
+      "name": "GitHub Trending / Daily",
+      "url": "https://github.com/trending?since=daily",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 17,
+      "http_status": 200
+    },
+    {
+      "id": "google-ai-blog",
+      "name": "Google AI Blog",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-26",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 20,
+      "http_status": 200
+    },
+    {
+      "id": "hf-models",
+      "name": "Hugging Face Trending Models",
+      "url": "https://huggingface.co/models?sort=trending",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 20,
+      "http_status": 200
+    },
+    {
+      "id": "hf-papers",
+      "name": "Hugging Face Daily Papers",
+      "url": "https://huggingface.co/papers",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-29",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 20,
+      "http_status": 200
+    },
+    {
+      "id": "hf-spaces",
+      "name": "Hugging Face Trending Spaces",
+      "url": "https://huggingface.co/spaces",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 20,
+      "http_status": 200
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-30",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 894,
+      "http_status": 200
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "url": "https://github.com/langchain-ai/langgraph/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-30",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "latent-space",
+      "name": "Latent Space / AI News",
+      "url": "https://www.latent.space/",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-31",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 20,
+      "http_status": 200
+    },
+    {
+      "id": "litellm",
+      "name": "LiteLLM",
+      "url": "https://github.com/BerriAI/litellm/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-30",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "llama-cpp",
+      "name": "llama.cpp",
+      "url": "https://github.com/ggml-org/llama.cpp/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-11-01",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "mcp-python",
+      "name": "MCP Python SDK",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-02",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "meta-ai-blog",
+      "name": "Meta AI Blog",
+      "url": "https://ai.meta.com/blog/",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 17,
+      "http_status": 200
+    },
+    {
+      "id": "mistral-news",
+      "name": "Mistral AI News",
+      "url": "https://mistral.ai/news",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 93,
+      "http_status": 200
+    },
+    {
+      "id": "mit-tech-review-ai",
+      "name": "MIT Technology Review / AI",
+      "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-29",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 10,
+      "http_status": 200
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "url": "https://github.com/ollama/ollama/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-28",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "open-webui",
+      "name": "Open WebUI",
+      "url": "https://github.com/open-webui/open-webui/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-29",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-30",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 1341,
+      "http_status": 200
+    },
+    {
+      "id": "qwen-blog",
+      "name": "Qwen Blog",
+      "url": "https://qwen.ai/blog",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "HTTP 可达，但本次解析为0条；不能据此认定没有新闻。",
+      "parsed_count": 0,
+      "http_status": 200
+    },
+    {
+      "id": "qwen-models",
+      "name": "Qwen Official Models",
+      "url": "https://huggingface.co/Qwen",
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "已读取发现列表；原文日期与结论需逐项核查。",
+      "parsed_count": 10,
+      "http_status": 200
+    },
+    {
+      "id": "ragflow",
+      "name": "RAGFlow",
+      "url": "https://github.com/infiniflow/ragflow/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-30",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "sglang",
+      "name": "SGLang",
+      "url": "https://github.com/sgl-project/sglang/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-19",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "simon-willison",
+      "name": "Simon Willison’s Weblog",
+      "url": "https://simonwillison.net/",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-11-01",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 30,
+      "http_status": 200
+    },
+    {
+      "id": "smolagents",
+      "name": "smolagents",
+      "url": "https://github.com/huggingface/smolagents/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-05-29",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "transformers",
+      "name": "Transformers",
+      "url": "https://github.com/huggingface/transformers/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-30",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
+    },
+    {
+      "id": "vals-index",
       "name": "Vals Index",
       "url": "https://www.vals.ai/benchmarks/vals_index",
-      "status": "unchanged",
-      "checked_at": "2026-11-02T07:57:14+08:00",
-      "latest_date": "2026-10-30",
-      "note": "页面仍标注10月30日、版本2.2；未见本窗口的新版本或排名更新。"
+      "status": "partial",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "HTTP 可达，但本次解析为0条；不能据此认定没有新闻。",
+      "parsed_count": 0,
+      "http_status": 200
+    },
+    {
+      "id": "venturebeat-ai",
+      "name": "VentureBeat / AI",
+      "url": "https://venturebeat.com/category/ai/",
+      "status": "failed",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": null,
+      "note": "抓取或解析失败；不能判定该源是否有新增。"
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM",
+      "url": "https://github.com/vllm-project/vllm/releases",
+      "status": "ok",
+      "checked_at": "2026-11-02T08:15:46+08:00",
+      "latest_date": "2026-10-18",
+      "note": "已解析条目；不代表每条已核验或适合刊发。",
+      "parsed_count": 5,
+      "http_status": 200
     }
   ],
   "notes": [
-    "本期为网站首次数据归档，目录原本没有历史期次；未把10月28日至31日已出现的旧稿误写为11月2日新闻。",
-    "报道窗口为北京时间2026-11-01 07:57:14至2026-11-02 07:57:14，均以绝对发布时间为准；无法确定的具体事件时刻未推断。",
-    "五个固定页面均可读取，无源站抓取失败；以汇总页为主的覆盖方式无法保证捕获其尚未收录的个别新消息。"
+    "本次检查43个来源：25个结构化源解析到条目，16个来源仅为发现列表、空列表或部分提取，2个抓取失败。已读取列表不代表全部候选逐条核实。",
+    "采集得到231条去重候选，最终核对并收录4条；未用 alpha 版本号变化、一般构建修复或热度数字凑数。",
+    "AIBase 本轮直连失败，VentureBeat 返回 HTTP 429；3个 arXiv RSS 为空。未据此断言这些站点没有新增。",
+    "Diffusers、ComfyUI和Soft-MTP是近7日回看，不是11月2日首次发布。没有为填满栏目而补造模型、公司或评测新闻。",
+    "原07:57发布的0条记录完整保留在本期先前版本中。本次为扩展来源后的编辑增补。",
+    "本文核对了项目发布记录与许可证；没有安装测试项目或独立复现性能、安全和研究结果。"
+  ],
+  "collection": {
+    "run_at": "2026-11-02T08:15:46+08:00",
+    "candidate_count": 231,
+    "configured_sources": 43
+  },
+  "previous_revisions": [
+    "data/revisions/2026-11-02/8e5cc084e3943b29.json"
   ]
 }

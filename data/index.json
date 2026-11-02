@@ -1,40 +1,361 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "site_name": "AI 日报",
   "timezone": "Asia/Shanghai",
   "update_time": "08:00",
   "editions": [
     {
       "date": "2026-11-02",
-      "title": "AI 日报｜2026-11-02（暂无重要新增）",
-      "count": 0
+      "title": "AI 日报｜本地推理、多模态工具与研究线索",
+      "count": 4
     }
   ],
   "sources": [
     {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "role": "模型、产品、API 与官方研究发布",
+      "group": "official",
+      "format": "rss"
+    },
+    {
+      "id": "anthropic-news",
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news",
+      "role": "Claude、Agent 与安全研究官方发布",
+      "group": "official",
+      "format": "html"
+    },
+    {
+      "id": "deepmind-blog",
+      "name": "Google DeepMind Blog",
+      "url": "https://deepmind.google/blog/",
+      "role": "模型、多模态与前沿研究发布",
+      "group": "official",
+      "format": "rss"
+    },
+    {
+      "id": "google-ai-blog",
+      "name": "Google AI Blog",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/",
+      "role": "Google AI 产品与开发平台更新",
+      "group": "official",
+      "format": "rss"
+    },
+    {
+      "id": "meta-ai-blog",
+      "name": "Meta AI Blog",
+      "url": "https://ai.meta.com/blog/",
+      "role": "Llama 与开放模型研究发布",
+      "group": "official",
+      "format": "html"
+    },
+    {
+      "id": "deepseek-news",
+      "name": "DeepSeek Research & News",
+      "url": "https://www.deepseek.com/en/news/",
+      "role": "DeepSeek 官方新闻与研究入口",
+      "group": "official",
+      "format": "html"
+    },
+    {
+      "id": "qwen-blog",
+      "name": "Qwen Blog",
+      "url": "https://qwen.ai/blog",
+      "role": "通义千问官方发布与技术说明",
+      "group": "official",
+      "format": "html"
+    },
+    {
+      "id": "mistral-news",
+      "name": "Mistral AI News",
+      "url": "https://mistral.ai/news",
+      "role": "Mistral 模型与产品发布",
+      "group": "official",
+      "format": "html"
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog",
+      "role": "开放模型、工具、数据集与部署技术说明",
+      "group": "official",
+      "format": "rss"
+    },
+    {
+      "id": "autogen",
+      "name": "AutoGen",
+      "url": "https://github.com/microsoft/autogen/releases",
+      "role": "多 Agent 编排框架版本更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "url": "https://github.com/langchain-ai/langgraph/releases",
+      "role": "有状态 Agent 工作流框架版本更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "smolagents",
+      "name": "smolagents",
+      "url": "https://github.com/huggingface/smolagents/releases",
+      "role": "轻量代码 Agent 框架版本更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "role": "Claude Code 官方产品版本记录；公开 issue 仓库不等于开源代码",
+      "group": "official",
+      "format": "github_releases"
+    },
+    {
+      "id": "codex",
+      "name": "OpenAI Codex",
+      "url": "https://github.com/openai/codex/releases",
+      "role": "编码 Agent 官方版本与变更日志",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM",
+      "url": "https://github.com/vllm-project/vllm/releases",
+      "role": "模型推理服务、性能与硬件支持更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "sglang",
+      "name": "SGLang",
+      "url": "https://github.com/sgl-project/sglang/releases",
+      "role": "模型推理运行时与服务更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "llama-cpp",
+      "name": "llama.cpp",
+      "url": "https://github.com/ggml-org/llama.cpp/releases",
+      "role": "本地模型推理和量化支持更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "url": "https://github.com/ollama/ollama/releases",
+      "role": "本地模型运行与分发工具更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "dify",
+      "name": "Dify",
+      "url": "https://github.com/langgenius/dify/releases",
+      "role": "Agent、RAG 与应用工作流平台版本更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "ragflow",
+      "name": "RAGFlow",
+      "url": "https://github.com/infiniflow/ragflow/releases",
+      "role": "文档解析、检索与 RAG 应用更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "open-webui",
+      "name": "Open WebUI",
+      "url": "https://github.com/open-webui/open-webui/releases",
+      "role": "本地模型交互与应用集成版本更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "transformers",
+      "name": "Transformers",
+      "url": "https://github.com/huggingface/transformers/releases",
+      "role": "模型架构、训练与推理基础库更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "diffusers",
+      "name": "Diffusers",
+      "url": "https://github.com/huggingface/diffusers/releases",
+      "role": "图像与视频生成模型工具库版本更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "comfyui",
+      "name": "ComfyUI",
+      "url": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "role": "图像视频工作流与本地部署版本更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "litellm",
+      "name": "LiteLLM",
+      "url": "https://github.com/BerriAI/litellm/releases",
+      "role": "模型网关、接口与服务基础设施更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "mcp-python",
+      "name": "MCP Python SDK",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/releases",
+      "role": "Agent 工具协议 Python 实现更新",
+      "group": "projects",
+      "format": "github_releases"
+    },
+    {
+      "id": "github-trending",
+      "name": "GitHub Trending / Daily",
+      "url": "https://github.com/trending?since=daily",
+      "role": "跨语言项目发现；热度仅用于发现，须回查 README、发布日期与实际用途",
+      "group": "discovery",
+      "format": "github_trending"
+    },
+    {
+      "id": "hf-papers",
+      "name": "Hugging Face Daily Papers",
+      "url": "https://huggingface.co/papers",
+      "role": "社区研究发现；回查论文原文与版本日期",
+      "group": "research",
+      "format": "hf_papers"
+    },
+    {
+      "id": "hf-models",
+      "name": "Hugging Face Trending Models",
+      "url": "https://huggingface.co/models?sort=trending",
+      "role": "模型发现；模型卡变更时间不等于首发时间",
+      "group": "discovery",
+      "format": "hf_models"
+    },
+    {
+      "id": "hf-spaces",
+      "name": "Hugging Face Trending Spaces",
+      "url": "https://huggingface.co/spaces",
+      "role": "交互演示与应用发现；回查来源仓库和许可证",
+      "group": "discovery",
+      "format": "hf_spaces"
+    },
+    {
+      "id": "deepseek-models",
+      "name": "DeepSeek Official Models",
+      "url": "https://huggingface.co/deepseek-ai",
+      "role": "官方模型卡与权重发布发现；修改时间须与发布说明交叉验证",
+      "group": "official",
+      "format": "hf_models"
+    },
+    {
+      "id": "qwen-models",
+      "name": "Qwen Official Models",
+      "url": "https://huggingface.co/Qwen",
+      "role": "官方模型卡与权重发布发现；修改时间须与发布说明交叉验证",
+      "group": "official",
+      "format": "hf_models"
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv cs.AI",
+      "url": "https://arxiv.org/list/cs.AI/recent",
+      "role": "预印本研究发现；未同行评审，须区分新稿与修订",
+      "group": "research",
+      "format": "rss"
+    },
+    {
+      "id": "arxiv-cl",
+      "name": "arXiv cs.CL",
+      "url": "https://arxiv.org/list/cs.CL/recent",
+      "role": "预印本研究发现；未同行评审，须区分新稿与修订",
+      "group": "research",
+      "format": "rss"
+    },
+    {
+      "id": "arxiv-cv",
+      "name": "arXiv cs.CV",
+      "url": "https://arxiv.org/list/cs.CV/recent",
+      "role": "预印本研究发现；未同行评审，须区分新稿与修订",
+      "group": "research",
+      "format": "rss"
+    },
+    {
+      "id": "aibase-daily",
       "name": "AIBase 日报",
       "url": "https://news.aibase.cn/daily/",
-      "role": "中文 AI 新闻汇总"
+      "role": "中文 AI 新闻汇总与线索；回查原始发布",
+      "group": "news",
+      "format": "html"
     },
     {
+      "id": "latent-space",
       "name": "Latent Space / AI News",
-      "url": "https://latent.space/news/",
-      "role": "海外模型、工具与开发者动态"
+      "url": "https://www.latent.space/",
+      "role": "海外模型、工具与开发者动态",
+      "group": "news",
+      "format": "rss"
     },
     {
+      "id": "simon-willison",
+      "name": "Simon Willison’s Weblog",
+      "url": "https://simonwillison.net/",
+      "role": "开发者实测、工具变化与可复核用例",
+      "group": "news",
+      "format": "atom"
+    },
+    {
+      "id": "mit-tech-review-ai",
+      "name": "MIT Technology Review / AI",
+      "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+      "role": "AI 行业、应用和社会影响报道",
+      "group": "news",
+      "format": "rss"
+    },
+    {
+      "id": "venturebeat-ai",
+      "name": "VentureBeat / AI",
+      "url": "https://venturebeat.com/category/ai/",
+      "role": "企业 AI 产品、应用与产业动态报道",
+      "group": "news",
+      "format": "rss"
+    },
+    {
+      "id": "artificial-analysis",
       "name": "Artificial Analysis",
       "url": "https://artificialanalysis.ai/articles",
-      "role": "独立评测与模型能力变化"
+      "role": "独立模型评测、成本与方法变化；保留版本与测量口径",
+      "group": "evaluation",
+      "format": "html"
     },
     {
+      "id": "arena-changelog",
       "name": "Arena 更新日志",
       "url": "https://arena.ai/company/leaderboard-changelog",
-      "role": "新模型入榜与评测方法变化"
+      "role": "新模型入榜与评测方法变化；榜单不直接等于任务效果",
+      "group": "evaluation",
+      "format": "html"
     },
     {
+      "id": "vals-index",
       "name": "Vals Index",
       "url": "https://www.vals.ai/benchmarks/vals_index",
-      "role": "专业 Agent 评测与综合榜"
+      "role": "专业 Agent 评测与综合榜；核对样本、方法及更新时间",
+      "group": "evaluation",
+      "format": "html"
     }
-  ]
+  ],
+  "taxonomy_url": "./config/taxonomy.json",
+  "sources_url": "./config/sources.json"
 }
