@@ -24,7 +24,7 @@
 
 ## 日常执行
 
-现有任务约定北京时间每天 08:00，目标仓库始终为 `lies-gifts/lies-gifts.github.io` 的 `main`，页面从分支根目录发布。**本次没有新增第二个定时器。仓库工作流更新不等于 ChatGPT 托管任务的保存指令已经修改；后台配置须另外确认。**
+现有任务约定北京时间每天 08:00，目标仓库始终为 `lies-gifts/lies-gifts.github.io` 的 `main`，页面从分支根目录发布。**2026-11-02，原 AI 日报聊天回执确认已将新版指令保存到现有任务，沿用每日 08:00、启用状态和通知设置，没有新建第二个定时器。下一轮定时执行尚未验证；后台未返回明确的 next_run_time。**
 
 每次先读取本仓库当前 `docs/DAILY_WORKFLOW.md`、`config/sources.json`、`config/taxonomy.json`、`data/index.json` 和最近归档。不要继续使用旧版五个来源的硬编码列表。
 
