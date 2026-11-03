@@ -1,0 +1,726 @@
+{
+  "schema_version": 2,
+  "date": "2026-11-03",
+  "generated_at": "2026-11-03T08:08:30+08:00",
+  "window_start": "2026-11-02T08:08:30+08:00",
+  "window_end": "2026-11-03T08:08:30+08:00",
+  "title": "AI 日报｜GDPx专业Agent评测、推理框架更新与研究",
+  "summary": "精选7条：1项独立评测、4个开源项目进展、2篇近7日研究回看。区分独立测试、项目官方发布与研究预印本，不以热度替代技术价值。",
+  "editorial_reviewed": true,
+  "items": [
+    {
+      "editorial_reviewed": true,
+      "is_update": false,
+      "related_sources": [
+        {
+          "name": "GDPx 公开领域与排行榜",
+          "url": "https://gdpx.semianalysis.com/"
+        }
+      ],
+      "models": [
+        "Claude Opus 5.5",
+        "Gemini 4 Carbon",
+        "GPT-6 Astra"
+      ],
+      "id": "gdpx-benchmark-20261102",
+      "event_key": "event:semianalysis:gdpx:v1:2026-11-02",
+      "category": "模型与产品 · 前沿进展",
+      "title": "GDPx 独立评测：11个专业领域、206项任务测试前沿 Agent",
+      "summary": "SemiAnalysis 于11月2日推出 GDPx，与14家专业数据合作方构建涵盖芯片设计、生物、网络安全、软件工程等11个领域的206项复杂任务。公开榜单中 Claude Opus 5.5、Gemini 4 Carbon 与 GPT-6 Astra 综合分数分别为12.0、10.9、9.6，均为该评测口径下的分数。",
+      "impact": "专业任务基准为高价值 Agent 选型提供新的对照维度，但不代表通用智能排名。安全拒答和任务难度会影响分数，选型前应结合各领域数据、自有任务和成本重新验证。",
+      "published_at": null,
+      "event_at": "2026-11-02",
+      "date_note": "原始文章标注2026-11-02，仅精确到日期；没有臆造具体发布时间。",
+      "source_name": "SemiAnalysis GDPx 原始评测",
+      "source_url": "https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities",
+      "verification": "独立评测",
+      "tags": [
+        "Agent",
+        "评测",
+        "模型对比",
+        "专业任务"
+      ],
+      "evidence_note": "已读取2026-11-02原始发布与GDPx公开榜单，核实11领域、14合作方、206任务及列出的分数。部分完整方法说明受付费限制；未独立重跑基准，也不把该分数视作跨场景客观优劣。",
+      "selection_reason": "比泛化聊天排行榜更接近专业 Agent 工作负载，提供可进一步核对的独立测试入口。",
+      "editorial_score": {
+        "impact": 4,
+        "usefulness": 3,
+        "freshness": 2,
+        "evidence": 3,
+        "total": 12
+      }
+    },
+    {
+      "editorial_reviewed": true,
+      "is_update": false,
+      "related_sources": [
+        {
+          "name": "项目许可证",
+          "url": "https://github.com/vllm-project/vllm/blob/main/LICENSE"
+        }
+      ],
+      "models": [],
+      "id": "vllm-v0330rc3",
+      "event_key": "release:vllm-project/vllm:v0.33.0rc3",
+      "category": "开源项目",
+      "title": "vLLM v0.33.0rc3 扩展模型与推测解码，CUDA发布物切至13.0",
+      "summary": "vLLM 在线推理引擎的 v0.33.0rc3 适配更多MoE、OCR和视觉模型，改善 DFlash/DSpark 等推测解码路径，并将默认 CUDA 发布物改为13.0、ROCm默认改为10.0；不再提供CUDA 12.9镜像和轮子。",
+      "impact": "为GPU推理服务升级提供可执行的兼容性检查点：先核对驱动、PyTorch 2.14、CUDA/ROCm及弃用参数。官方加速数字限于特定硬件和测试，不可推及全部部署。",
+      "published_at": "2026-11-02T10:10:05Z",
+      "event_at": "2026-11-02T10:10:05Z",
+      "date_note": "UTC 2026-11-02 10:10，即北京时间11月2日18:10；虽API prerelease=false，但tag含rc3，按候选版本看待。",
+      "source_name": "vLLM 官方 GitHub Releases API",
+      "source_url": "https://github.com/vllm-project/vllm/releases/tag/v0.33.0rc3",
+      "verification": "官方发布",
+      "tags": [
+        "推理与服务",
+        "CUDA",
+        "ROCm",
+        "MoE",
+        "部署"
+      ],
+      "evidence_note": "直接读取官方 release API 的发布时间、tag、变更清单并核对 Apache-2.0 LICENSE；未验证所有二进制资产或独立复现吞吐数字。",
+      "selection_reason": "CUDA基线变更与新增服务能力会直接影响部署、升级及成本。",
+      "editorial_score": {
+        "impact": 4,
+        "usefulness": 3,
+        "freshness": 2,
+        "evidence": 3,
+        "total": 12
+      },
+      "repository_url": "https://github.com/vllm-project/vllm",
+      "project": {
+        "purpose": "为语言及多模态模型提供高吞吐、兼容OpenAI接口的GPU在线推理服务。",
+        "audience": "AI平台运维、推理服务器开发者。",
+        "license": "Apache-2.0（核心项目）；模型权重及依赖须另行核对。",
+        "limitations": "rc3 标签显示为候选版，CUDA13和ROCm10迁移需实际兼容性测试；性能指标仅限官方注明条件。",
+        "quick_start_url": "https://docs.vllm.ai/"
+      }
+    },
+    {
+      "editorial_reviewed": true,
+      "is_update": false,
+      "related_sources": [
+        {
+          "name": "项目许可证",
+          "url": "https://github.com/sgl-project/sglang/blob/main/LICENSE"
+        }
+      ],
+      "models": [],
+      "id": "sglang-v0523",
+      "event_key": "release:sgl-project/sglang:v0.5.23",
+      "category": "开源项目",
+      "title": "SGLang v0.5.23：MoE显存管理、异构硬件及量化LoRA服务增强",
+      "summary": "SGLang 推理框架 v0.5.23 扩充多款语言及扩散模型适配，增加可选 Paged Experts 以在GPU显存不足时运行较大MoE模型，提供 TPU7x 插件支持和量化 MoE 的 LoRA 服务功能；官方还列出对特定 NVIDIA/AMD GPU 的低延迟优化。",
+      "impact": "适合关注MoE单卡部署、跨平台推理和服务成本的工程师评估。Paged Experts、融合内核及性能收益依赖特定模型、硬件和工作负载，不宜照搬性能百分比。",
+      "published_at": "2026-11-02T22:14:10Z",
+      "event_at": "2026-11-02T22:14:10Z",
+      "date_note": "UTC 2026-11-02 22:14，相当于北京时间11月3日06:14。",
+      "source_name": "SGLang 官方 GitHub Releases API",
+      "source_url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.23",
+      "verification": "官方发布",
+      "tags": [
+        "推理与服务",
+        "本地部署",
+        "MoE",
+        "LoRA",
+        "GPU",
+        "多模态"
+      ],
+      "evidence_note": "已读取官方版本说明和Apache-2.0 LICENSE。Paged Experts、TPU7x及LoRA更新可核查；所谓最多30倍于CPU卸载等性能数字为官方限定条件结果，未独立复测。",
+      "selection_reason": "显存、部署平台及模型支持的实质变化，具备直接工程用途。",
+      "editorial_score": {
+        "impact": 4,
+        "usefulness": 3,
+        "freshness": 2,
+        "evidence": 3,
+        "total": 12
+      },
+      "repository_url": "https://github.com/sgl-project/sglang",
+      "project": {
+        "purpose": "为LLM、多模态和扩散模型提供高性能推理运行时及服务。",
+        "audience": "MoE部署工程师、推理平台团队及多GPU服务开发者。",
+        "license": "Apache-2.0（主仓库）；模型权重与扩展插件需另查许可。",
+        "limitations": "可选功能不等于默认开启，不保证任意消费级显卡可承载任意模型；性能数字有硬件和负载边界。",
+        "quick_start_url": "https://docs.sglang.io/"
+      }
+    },
+    {
+      "editorial_reviewed": true,
+      "is_update": false,
+      "related_sources": [
+        {
+          "name": "README及免责声明",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/README.md"
+        },
+        {
+          "name": "MIT许可证",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/LICENSE"
+        }
+      ],
+      "models": [],
+      "id": "deepseek-dsh-superagent-prototype",
+      "event_key": "repo:deepseek-ai/dsh-superagent-prototype:2026-10-31",
+      "category": "开源项目",
+      "title": "近7日项目发现：DeepSeek Harness团队公开 dsh-superagent Agent原型",
+      "summary": "dsh-superagent 是用于单个 GitHub 仓库的主动式编码Agent研究原型，按授权监听 GitHub 及可选飞书消息，建立独立任务与会话、处理工作并以PR等形式回执；管理面板列出仍需人工处理的事项。README明确说明它不是DeepSeek官方产品。",
+      "impact": "对开发团队级Agent、细化授权边界、设计低噪通知和PR工作流有源码参考价值。应先审查权限并在隔离环境测试，不宜当成熟产品直接上线。",
+      "published_at": "2026-10-31T12:05:39Z",
+      "event_at": "2026-10-31T12:05:39Z",
+      "date_note": "近7日回看；时间来自仓库首批公开Git提交（UTC 2026-10-31 12:05），非宣称当日正式发布产品。",
+      "source_name": "dsh-superagent 官方团队源码/README",
+      "source_url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "verification": "官方发布",
+      "tags": [
+        "Agent",
+        "编程工具",
+        "GitHub",
+        "工作流",
+        "近7日项目回看"
+      ],
+      "evidence_note": "经GitHub连接器读取仓库README、MIT LICENSE和首批Git提交。README原文明确写明research prototype、not an official DeepSeek product、与内部版本不同且某些设计未实现。未自行安装测试。",
+      "selection_reason": "有完整授权、会话隔离和反馈工作流的公开实现，且开发状态与限制说明清楚。",
+      "editorial_score": {
+        "impact": 3,
+        "usefulness": 3,
+        "freshness": 1,
+        "evidence": 3,
+        "total": 10
+      },
+      "repository_url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "project": {
+        "purpose": "为单个GitHub仓库提供授权触发、Agent任务会话隔离、PR结果回执与人工待办面板。",
+        "audience": "研究自治Agent、团队协作自动化与GitHub工作流的开发者。",
+        "license": "MIT（仓库LICENSE已核对）。",
+        "limitations": "研究参考原型，非DeepSeek正式产品，作者警告可能存在缺陷及未实现功能；环境配置和权限审查不可省略。",
+        "quick_start_url": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/SETUP.md"
+      }
+    },
+    {
+      "editorial_reviewed": true,
+      "is_update": false,
+      "related_sources": [
+        {
+          "name": "音色支持 PR",
+          "url": "https://github.com/ggml-org/llama.cpp/pull/31429"
+        }
+      ],
+      "models": [],
+      "id": "llama-cpp-b12061-pockettts",
+      "event_key": "release:ggml-org/llama.cpp:b12061",
+      "category": "开源项目",
+      "title": "llama.cpp b12061 预发布：PocketTTS 支持预设音色、无需声音克隆",
+      "summary": "llama.cpp 的 b12061 自动预发布为 PocketTTS 无声音克隆模型新增预定义音色选择。转换器可打包音色状态，TTS接口按名称选择音色，/props可列出支持声音，并对不受支持的参考音色输入明确报错。",
+      "impact": "有利于搭建无需参考人声上传的本地语音合成接口，适合做TTS工具的开发者关注；具体音质、延迟及各语言表现仍需自行测试。",
+      "published_at": "2026-11-02T23:17:24Z",
+      "event_at": "2026-11-02T23:17:24Z",
+      "date_note": "UTC 2026-11-02 23:17，即北京时间11月3日07:17；GitHub标记prerelease=true。",
+      "source_name": "llama.cpp 官方 GitHub Releases API",
+      "source_url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12061",
+      "verification": "官方发布",
+      "tags": [
+        "本地部署",
+        "语音生成",
+        "多模态",
+        "PocketTTS",
+        "预发布"
+      ],
+      "evidence_note": "直接核查官方Release API的精确日期、预发布标记与音色配置更新，许可证由官方仓库页面核对；未复测音质、设备兼容或模型转换。",
+      "selection_reason": "与昨日llama.cpp OpenCL项目是不同版本及功能的实际新增，扩展本地TTS可用性。",
+      "editorial_score": {
+        "impact": 2,
+        "usefulness": 3,
+        "freshness": 2,
+        "evidence": 3,
+        "total": 10
+      },
+      "repository_url": "https://github.com/ggml-org/llama.cpp",
+      "project": {
+        "purpose": "在本地设备运行GGUF格式的语言与多模态模型，并提供命令行及服务接口。",
+        "audience": "本地AI应用与语音合成工具开发者。",
+        "license": "MIT（主仓库）；PocketTTS权重和声音素材许可须单独核实。",
+        "limitations": "这是自动生成的预发布版本，仅支持特定权重；新音色接口未得到独立声音质量和稳定性验证。",
+        "quick_start_url": "https://github.com/ggml-org/llama.cpp#quick-start"
+      }
+    },
+    {
+      "editorial_reviewed": true,
+      "is_update": false,
+      "related_sources": [
+        {
+          "name": "Hugging Face 研究发现页",
+          "url": "https://huggingface.co/papers/2610.37481"
+        }
+      ],
+      "models": [],
+      "id": "simplelorif-arxiv-2610-37481",
+      "event_key": "https://arxiv.org/abs/2610.37481",
+      "category": "研究",
+      "title": "近7日研究回看：SimpleLoRIF 用梯度归因识别导致安全退化的微调样本",
+      "summary": "《Follow the Gradient》提出SimpleLoRIF，以梯度嵌入追踪看似无害却可能导致微调后安全行为退化的数据。作者构造去掉20%相关样本的SafeTulu，并报告在实验的GCG攻击任务中，攻击成功率最高下降约22%。",
+      "impact": "为模型指令微调数据清洗与安全性分析提供研究方向，但论文中攻击设置、数据和模型的实验结果不代表通用安全保证。",
+      "published_at": "2026-10-27T16:08:08Z",
+      "event_at": "2026-10-27T16:08:08Z",
+      "date_note": "近7日研究回看：arXiv首次提交UTC 2026-10-27 16:08，即北京时间10月28日00:08；不是11月3日新论文。",
+      "source_name": "arXiv 2610.37481",
+      "source_url": "https://arxiv.org/abs/2610.37481",
+      "verification": "研究预印本",
+      "tags": [
+        "研究预印本",
+        "训练",
+        "数据治理",
+        "AI安全",
+        "近7日研究回看"
+      ],
+      "evidence_note": "已读取arXiv原始摘要与提交历史；20%筛除、22%下降均为作者报告，尚未同行评审，也未独立复跑实验。",
+      "selection_reason": "针对安全退化的非明显数据成因提出可检验的训练数据处理方法。",
+      "editorial_score": {
+        "impact": 3,
+        "usefulness": 2,
+        "freshness": 1,
+        "evidence": 2,
+        "total": 8
+      }
+    },
+    {
+      "editorial_reviewed": true,
+      "is_update": false,
+      "related_sources": [
+        {
+          "name": "Hugging Face论文入口",
+          "url": "https://huggingface.co/papers/2610.36545"
+        }
+      ],
+      "models": [],
+      "id": "frameforge-arxiv-2610-36545",
+      "event_key": "https://arxiv.org/abs/2610.36545",
+      "category": "研究",
+      "title": "近7日研究回看：FrameForge 用视频模型时间先验构造统一图像生成方法",
+      "summary": "FrameForge尝试让预训练视频模型完成图像编辑及条件生成，引入MoTE动态选择虚拟时间关系，再用CoTR引导中间潜在状态的条件转换。作者报告在DreamBench、COCO2017、GEdit-Bench等比较任务中有优势。",
+      "impact": "为主体一致性图像生成、图像编辑和时序先验迁移提供研究思路，不能直接推出实际工具在成本、质量和显存方面更优。",
+      "published_at": "2026-10-27T02:59:22Z",
+      "event_at": "2026-10-27T02:59:22Z",
+      "date_note": "近7日研究回看：arXiv首次提交UTC 2026-10-27 02:59，即北京时间10月27日10:59；非今日新闻。",
+      "source_name": "arXiv 2610.36545",
+      "source_url": "https://arxiv.org/abs/2610.36545",
+      "verification": "研究预印本",
+      "tags": [
+        "研究预印本",
+        "多模态",
+        "图像生成",
+        "图像编辑",
+        "近7日研究回看"
+      ],
+      "evidence_note": "已直接阅读arXiv摘要及历史，方法和性能结论限作者摘要所述；未全文精读或独立验证训练代码与结果。",
+      "selection_reason": "视频模型时序机制向图像生成迁移，具有明确的模型设计启发。",
+      "editorial_score": {
+        "impact": 2,
+        "usefulness": 2,
+        "freshness": 1,
+        "evidence": 2,
+        "total": 7
+      }
+    }
+  ],
+  "source_status": [
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "anthropic-news",
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "deepmind-blog",
+      "name": "Google DeepMind Blog",
+      "url": "https://deepmind.google/blog/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "google-ai-blog",
+      "name": "Google AI Blog",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "meta-ai-blog",
+      "name": "Meta AI Blog",
+      "url": "https://ai.meta.com/blog/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "deepseek-news",
+      "name": "DeepSeek Research & News",
+      "url": "https://www.deepseek.com/en/news/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "qwen-blog",
+      "name": "Qwen Blog",
+      "url": "https://qwen.ai/blog",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "mistral-news",
+      "name": "Mistral AI News",
+      "url": "https://mistral.ai/news",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "autogen",
+      "name": "AutoGen",
+      "url": "https://github.com/microsoft/autogen/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2025-09-30",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "url": "https://github.com/langchain-ai/langgraph/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-30",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "smolagents",
+      "name": "smolagents",
+      "url": "https://github.com/huggingface/smolagents/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-05-29",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-31",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "codex",
+      "name": "OpenAI Codex",
+      "url": "https://github.com/openai/codex/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-11-01",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM",
+      "url": "https://github.com/vllm-project/vllm/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-11-02",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "sglang",
+      "name": "SGLang",
+      "url": "https://github.com/sgl-project/sglang/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-11-02",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "llama-cpp",
+      "name": "llama.cpp",
+      "url": "https://github.com/ggml-org/llama.cpp/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-11-02",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "url": "https://github.com/ollama/ollama/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-28",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "dify",
+      "name": "Dify",
+      "url": "https://github.com/langgenius/dify/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-23",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "ragflow",
+      "name": "RAGFlow",
+      "url": "https://github.com/infiniflow/ragflow/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-30",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "open-webui",
+      "name": "Open WebUI",
+      "url": "https://github.com/open-webui/open-webui/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-29",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "transformers",
+      "name": "Transformers",
+      "url": "https://github.com/huggingface/transformers/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-30",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "diffusers",
+      "name": "Diffusers",
+      "url": "https://github.com/huggingface/diffusers/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-27",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "comfyui",
+      "name": "ComfyUI",
+      "url": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-27",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "litellm",
+      "name": "LiteLLM",
+      "url": "https://github.com/BerriAI/litellm/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-30",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "mcp-python",
+      "name": "MCP Python SDK",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/releases",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": "2026-10-02",
+      "status": "ok",
+      "note": "经已连接GitHub Releases API直接解析最近2个版本；入选版本另外阅读完整release及许可证；未穷尽历史。"
+    },
+    {
+      "id": "github-trending",
+      "name": "GitHub Trending / Daily",
+      "url": "https://github.com/trending?since=daily",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "hf-papers",
+      "name": "Hugging Face Daily Papers",
+      "url": "https://huggingface.co/papers",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "hf-models",
+      "name": "Hugging Face Trending Models",
+      "url": "https://huggingface.co/models?sort=trending",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "hf-spaces",
+      "name": "Hugging Face Trending Spaces",
+      "url": "https://huggingface.co/spaces",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "deepseek-models",
+      "name": "DeepSeek Official Models",
+      "url": "https://huggingface.co/deepseek-ai",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "qwen-models",
+      "name": "Qwen Official Models",
+      "url": "https://huggingface.co/Qwen",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv cs.AI",
+      "url": "https://arxiv.org/list/cs.AI/recent",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "arxiv-cl",
+      "name": "arXiv cs.CL",
+      "url": "https://arxiv.org/list/cs.CL/recent",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "arxiv-cv",
+      "name": "arXiv cs.CV",
+      "url": "https://arxiv.org/list/cs.CV/recent",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "aibase-daily",
+      "name": "AIBase 日报",
+      "url": "https://news.aibase.cn/daily/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "latent-space",
+      "name": "Latent Space / AI News",
+      "url": "https://www.latent.space/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "simon-willison",
+      "name": "Simon Willison’s Weblog",
+      "url": "https://simonwillison.net/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "mit-tech-review-ai",
+      "name": "MIT Technology Review / AI",
+      "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "venturebeat-ai",
+      "name": "VentureBeat / AI",
+      "url": "https://venturebeat.com/category/ai/",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "failed",
+      "note": "已尝试该RSS/Atom/API/网站入口，但本轮工具无法访问或解码正文；不能推断没有新增。"
+    },
+    {
+      "id": "artificial-analysis",
+      "name": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/articles",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "arena-changelog",
+      "name": "Arena 更新日志",
+      "url": "https://arena.ai/company/leaderboard-changelog",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    },
+    {
+      "id": "vals-index",
+      "name": "Vals Index",
+      "url": "https://www.vals.ai/benchmarks/vals_index",
+      "checked_at": "2026-11-03T08:08:30+08:00",
+      "latest_date": null,
+      "status": "partial",
+      "note": "已通过网页读取HTML、动态发现列表或部分内容；并未取得完整结构化条目，不能据此断言没有新闻。"
+    }
+  ],
+  "notes": [
+    "对照2026-11-02归档4条，按事件key、项目及版本、论文ID和原始URL去重；本期不重复昨日diffusers、llama.cpp b12031、ComfyUI及Soft-MTP。",
+    "43个配置来源均作读取尝试；其中17个GitHub Releases API得到结构化版本记录，其余26个经网页工具尝试，部分仅发现列表、部分RSS/Atom/页面解析失败，均在source_status逐项注明，不推断没有新增。",
+    "新闻观察窗口为北京时间2026-11-02 08:08—2026-11-03 08:08。研究及项目回看均保留来源日期；GitHub stars、下载量、论文热度仅做发现信号。",
+    "因本地环境无网络DNS，本轮未执行本地Python collect；采用已连接GitHub工具和网页工具按仓库v2协议完成同等字段编辑核验。未独立安装测试项目，也未复现性能或论文实验。"
+  ],
+  "collection": {
+    "run_at": "2026-11-03T08:08:30+08:00",
+    "configured_sources": 43,
+    "structured_github_release_sources": 17,
+    "failed_sources": 12
+  }
+}

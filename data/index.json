@@ -5,6 +5,11 @@
   "update_time": "08:00",
   "editions": [
     {
+      "date": "2026-11-03",
+      "title": "AI 日报｜GDPx专业Agent评测、推理框架更新与研究",
+      "count": 7
+    },
+    {
       "date": "2026-11-02",
       "title": "AI 日报｜本地推理、多模态工具与研究线索",
       "count": 4
